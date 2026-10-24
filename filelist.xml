@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<contentpackage name="[EA-HI] 木卫二萌化整合包 with male characters x 天赋增强 兼容补丁" corepackage="false" modversion="0.1.0" gameversion="1.13.4.0">
+  <Item file="%ModDir%/Items/Items_StarWeapons.xml" />
+  <Item file="%ModDir%/Items/Items_Ammo.xml" />
+  <Item file="%ModDir%/Items/Items_VariantOnly.xml" />
+</contentpackage>

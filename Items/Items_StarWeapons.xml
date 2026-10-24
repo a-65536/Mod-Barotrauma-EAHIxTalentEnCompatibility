@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Override>
+  <Items>
+    <!-- 爆鸣 shotgununique -->
+    <Item name="" identifier="shotgununique" subcategory="TalentEnhancement" category="Weapon" cargocontaineridentifier="metalcrate" tags="mediumitem,weapon,gun,provocativetohumanai,mountableweapon,unique" Scale="0.45" impactsoundtag="impact_metal_light" hideinmenus="false" allowasextracargo="true" hideconditionbar="true">
+      <PreferredContainer primary="secarmcab" secondary="armcab" />
+      <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab,piratesecarmcab" spawnprobability="0.05" />
+      <Price baseprice="900" sold="false" canbespecial="false" />
+      <Fabricate suitablefabricators="fabricator" requiredtime="60" requiresrecipe="true">
+        <RequiredSkill identifier="weapons" level="55" />
+        <RequiredItem identifier="steel" amount="2" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+        <RequiredItem identifier="plastic" amount="2" />
+      </Fabricate>
+      <Deconstruct time="10">
+        <Item identifier="steel" />
+        <Item identifier="titaniumaluminiumalloy" />
+        <Item identifier="plastic" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="uniquestrengthen">
+        <RequiredItem identifier="shotgununique" />
+        <RequiredItem identifier="dementonite" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_new.png" sourcerect="1,213,231,47" />
+      <Sprite texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_new.png" sourcerect="1,213,231,47" depth="0.55" origin="0.5,0.5" />
+      <BrokenSprite texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_animation.png" sourcerect="297,897,201,112" depth="0.55" origin="0.25,0.25" maxcondition="50" />
+      <Body width="180" height="30" density="25" />
+      <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="52,-10" aimpos="55,5" handle1="-46,-6" handle2="26,7" holdangle="-50" msg="ItemMsgPickUpSelect" />
+      <RangedWeapon barrelpos="85,10" spread="1" unskilledspread="4" combatPriority="80" reload="0.1" drawhudwhenequipped="true" crosshairscale="0.2">
+        <Crosshair texture="%ModDir:3127901589%/Content/Items/Weapons/Crosshairs.png" sourcerect="0,0,256,226" />
+        <CrosshairPointer texture="%ModDir:3127901589%/Content/Items/Weapons/Crosshairs.png" sourcerect="256,0,256,256" />
+        <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+        <Sound file="Content/Items/Weapons/ShotgunShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+        <Sound file="Content/Items/Weapons/ShotgunShot2.ogg" type="OnUse" range="3000" />
+        <Sound file="Content/Items/Weapons/ShotgunShot3.ogg" type="OnUse" range="3000" />
+        <Sound file="Content/Items/Weapons/ShotgunShot4.ogg" type="OnUse" range="3000" />
+        <StatusEffect type="OnUse" target="This" offset="0,-2">
+          <Explosion range="150.0" force="3" shockwave="false" smoke="false" flash="true" sparks="false" flames="false" underwaterbubble="false" camerashake="6.0" />
+        </StatusEffect>
+        <StatusEffect type="OnSecondaryUse" target="Character">
+          <Affliction identifier="precise_l" strength="1" />
+          <RequiredItems items="wf_laserpointer" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This" maxchargetime="999" setvalue="true" disabledeltatime="true" CheckConditionalAlways="true">
+          <Conditional HasTag="WF_ceasefire" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" reload="2.0" setvalue="true" delay="0.05" />
+        <StatusEffect type="OnUse" target="This" reload="0.1" setvalue="true" delay="2.0" />
+        <StatusEffect type="OnUse" target="This" reload="1.0" setvalue="true" delay="0.2" />
+        <StatusEffect type="OnUse" target="This" reload="0.1" setvalue="true" delay="1.0" />
+        <RequiredItems items="shotgunammo" type="Contained" msg="ItemMsgAmmoRequired" />
+        <RequiredSkill identifier="weapons" level="50" />
+      </RangedWeapon>
+      <ItemContainer capacity="1" maxstacksize="2" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+        <Containable items="shotgunammo" hide="true">
+          <StatusEffect type="OnInserted" target="This" holdpos="32,-10" aimpos="44,-7" handle1="-42,-9" handle2="12,2" holdangle="8" aimangle="10" delay="0.01" condition="100" tags="mediumitem,weapon,gun,provocativetohumanai,mountableweapon,WF_ceasefire" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="24,4" aimpos="26,-2" handle1="0,-28" handle2="80,20" holdangle="-55" aimangle="-45" delay="0.2" condition="50" setvalue="true" disabledeltatime="true" offset="-6,0">
+            <ParticleEmitter particle="WF_casingfirearm_shotgun" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+          </StatusEffect>
+          <StatusEffect type="OnInserted" target="This" holdpos="24,4" aimpos="26,-2" handle1="0,-28" handle2="18,4" holdangle="-60" aimangle="-50" delay="0.45" condition="50" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="24,4" aimpos="26,-2" handle1="0,-28" handle2="80,14" holdangle="-60" aimangle="-50" delay="0.85" condition="50" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="24,-16" aimpos="48,0" handle1="-46,-6" handle2="26,7" holdangle="-15" aimangle="8" delay="1.2" condition="100" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="52,-10" aimpos="55,5" handle1="-46,-6" handle2="26,7" holdangle="-50" aimangle="0" delay="1.3" condition="100" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="52,-10" aimpos="55,5" handle1="-46,-6" handle2="26,7" holdangle="-50" aimangle="0" delay="1.35" condition="100" maxchargetime="0" tags="mediumitem,weapon,gun,provocativetohumanai,mountableweapon" allowaccess="true" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" delay="0.1">
+            <Sound file="%ModDir:3127901589%/Content/Items/Weapons/ANI_boomstick_reload.ogg" range="500" volume="0.5" />
+          </StatusEffect>
+          <StatusEffect type="OnInserted" target="This" delay="0.1" allowaccess="false" setvalue="true" disabledeltatime="true" />
+        </Containable>
+        <SlotIcon slotindex="0" texture="Content/UI/StatusMonitorUI.png" sourcerect="256,448,64,64" origin="0.5,0.5" />
+        <SlotIcon slotindex="1" texture="Content/UI/StatusMonitorUI.png" sourcerect="320,448,64,64" origin="0.5,0.5" />
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable items="flashlight" excludeditems="wf_laserpointer" hide="true" itempos="20,1" setactive="true" />
+          <Containable items="wf_laserpointer" hide="false" itempos="20,-1" setactive="true" />
+        </SubContainer>
+      </ItemContainer>
+      <aitarget sightrange="3000" soundrange="5000" fadeouttime="5" />
+      <Quality>
+        <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+      </Quality>
+      <SkillRequirementHint identifier="weapons" level="50" />
+    </Item>
+
+    <!-- 木卫二之交 divingknifeunique -->
+    <Item name="" identifier="divingknifeunique" subcategory="TalentEnhancement" category="Weapon" Tags="smallitem,weapon,mountableweapon,sharptool,unique" cargocontaineridentifier="metalcrate" scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="false" allowasextracargo="true" RequireAimToUse="True">
+      <PreferredContainer primary="secarmcab" secondary="armcab" />
+      <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab,piratesecarmcab" spawnprobability="0.05" />
+      <Price baseprice="770" sold="false" canbespecial="false" />
+      <Deconstruct time="10">
+        <Item identifier="iron" />
+        <Item identifier="morbusine" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="uniquestrengthen">
+        <RequiredItem identifier="divingknifeunique" />
+        <RequiredItem identifier="dementonite" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_new.png" sourcerect="340,76,32,32" origin="0.5,0.5" />
+      <Sprite texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_new.png" sourcerect="304,0,76,17" depth="0.55" origin="0.5,0.5" />
+      <Body width="80" height="20" density="25" />
+      <MeleeWeapon slots="Any,RightHand,LeftHand" aimpos="50,0" handle1="-10,0" holdangle="30" reload="0.75" range="50" combatPriority="30" msg="ItemMsgPickUpSelect">
+        <Attack targetimpulse="2" severlimbsprobability="0.1" itemdamage="3" structuredamage="2" structuresoundtype="StructureSlash">
+          <Affliction identifier="lacerations" strength="10" />
+          <Affliction identifier="bleeding" strength="10" />
+          <Affliction identifier="stun" strength="0.2" />
+          <Affliction identifier="morbusinepoisoning" strength="4" />
+          <StatusEffect type="OnUse" target="UseTarget">
+            <Conditional entitytype="eq Character" />
+            <Sound file="Content/Sounds/Damage/LimbSlash1.ogg" selectionmode="random" range="500" />
+            <Sound file="Content/Sounds/Damage/LimbSlash2.ogg" range="500" />
+            <Sound file="Content/Sounds/Damage/LimbSlash3.ogg" range="500" />
+            <Sound file="Content/Sounds/Damage/LimbSlash4.ogg" range="500" />
+            <Sound file="Content/Sounds/Damage/LimbSlash5.ogg" range="500" />
+            <Sound file="Content/Sounds/Damage/LimbSlash6.ogg" range="500" />
+          </StatusEffect>
+        </Attack>
+        <StatusEffect type="OnUse" target="This,UseTarget">
+          <Conditional qualitylevel="eq 3" />
+          <Affliction identifier="morbusinepoisoning" strength="4" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This,UseTarget" multiplyafflictionsbymaxvitality="true" setvalue="true" comparison="and">
+          <Conditional qualitylevel="eq 3" />
+          <Conditional oxygenlow="lt 50" />
+          <Affliction identifier="oxygenlow" strength="50" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This,UseTarget" multiplyafflictionsbymaxvitality="true" setvalue="true" comparison="and">
+          <Conditional qualitylevel="eq 3" />
+          <Conditional morbusinepoisoning="lt 25" />
+          <Affliction identifier="morbusinepoisoning" strength="25" />
+        </StatusEffect>
+      </MeleeWeapon>
+      <aitarget sightrange="500" soundrange="250" fadeouttime="1" />
+      <Quality>
+        <QualityStat stattype="StrikingPowerMultiplier" value="0.1" />
+      </Quality>
+    </Item>
+
+    <!-- 亡眼步枪 smgunique -->
+    <Item name="" identifier="smgunique" subcategory="TalentEnhancement" category="Weapon" cargocontaineridentifier="metalcrate" tags="smallautoweapon,smallitem,weapon,gun,mountableweapon,unique" Scale="0.45" impactsoundtag="impact_metal_light" hideinmenus="false" allowasextracargo="true" hideconditionbar="true">
+      <PreferredContainer primary="secarmcab" secondary="armcab" />
+      <PreferredContainer secondary="wrecksecarmcab,abandonedsecarmcab" spawnprobability="0.05" />
+      <Price baseprice="900" sold="false" canbespecial="false" />
+      <Fabricate suitablefabricators="fabricator" requiredtime="35" requiresrecipe="true">
+        <RequiredSkill identifier="weapons" level="55" />
+        <RequiredItem identifier="plastic" />
+        <RequiredItem identifier="titaniumaluminiumalloy" amount="2" />
+      </Fabricate>
+      <Deconstruct time="10">
+        <Item identifier="titaniumaluminiumalloy" />
+        <Item identifier="plastic" />
+      </Deconstruct>
+      <Fabricate suitablefabricators="fabricator" requiredtime="15" requiresrecipe="true" displayname="uniquestrengthen">
+        <RequiredItem identifier="smgunique" />
+        <RequiredItem identifier="dementonite" />
+      </Fabricate>
+      <InventoryIcon texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_new.png" sourcerect="208,126,211,70" />
+      <Sprite texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_new.png" sourcerect="208,122,211,76" depth="0.55" origin="0.5,0.5" />
+      <BrokenSprite texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_animation.png" sourcerect="4,724,211,76" depth="0.55" origin="0.5,0.5" maxcondition="75" />
+      <BrokenSprite texture="%ModDir:3127901589%/Content/Items/Weapons/weapons_animation.png" sourcerect="4,803,211,76" depth="0.55" origin="0.5,0.5" maxcondition="70" />
+      <Body width="200" height="60" density="25" />
+      <Holdable slots="Any,RightHand+LeftHand" controlpose="true" holdpos="42,-10" aimpos="50,2" handle1="-10,-15" handle2="45,-2" holdangle="-35" maxchargetime="0" msg="ItemMsgPickUpSelect" />
+      <RangedWeapon reload="0.08" weapondamagemodifier="1.3" penetration="0.15" holdtrigger="true" barrelpos="88,20" spread="2" unskilledspread="6" combatPriority="80" drawhudwhenequipped="true" crosshairscale="0.2">
+        <Crosshair texture="%ModDir:3127901589%/Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+        <CrosshairPointer texture="%ModDir:3127901589%/Content/Items/Weapons/Crosshairs.png" sourcerect="256,306,256,196" />
+        <ParticleEmitter particle="muzzleflash" particleamount="1" velocitymin="0" velocitymax="0" />
+        <Sound file="%ModDir:3127901589%/Content/Items/Weapons/SMGsingleShot1.ogg" type="OnUse" range="3000" selectionmode="Random" />
+        <Sound file="%ModDir:3127901589%/Content/Items/Weapons/SMGsingleShot2.ogg" type="OnUse" range="3000" />
+        <Sound file="%ModDir:3127901589%/Content/Items/Weapons/SMGsingleShot3.ogg" type="OnUse" range="3000" />
+        <StatusEffect type="OnUse" target="This" offset="2,7">
+          <ParticleEmitter particle="casingfirearm" particleamount="1" anglemin="90" anglemax="150" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" offset="2,-14">
+          <Explosion range="150.0" force="0.5" shockwave="false" smoke="false" flames="false" sparks="false" underwaterbubble="false" camerashake="4.0" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This" maxchargetime="999" setvalue="true" disabledeltatime="true" CheckConditionalAlways="true">
+          <Conditional HasTag="WF_ceasefire" />
+        </StatusEffect>
+        <StatusEffect type="OnSecondaryUse" target="Character">
+          <Affliction identifier="precise" strength="1" />
+          <RequiredItems items="reddot,hybridscope" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnSecondaryUse" target="Character">
+          <Affliction identifier="precise_l" strength="1" />
+          <RequiredItems items="wf_laserpointer" type="Contained" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" spread="2" unskilledspread="4" disabledeltatime="true">
+          <Conditional spread="lte 4" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" spread="4" unskilledspread="16" setvalue="true" disabledeltatime="true">
+          <Conditional spread="gt 4" />
+        </StatusEffect>
+        <StatusEffect type="OnSecondaryUse" target="This" spread="-8" unskilledspread="-4">
+          <Conditional spread="gt 0" />
+        </StatusEffect>
+        <StatusEffect type="Always" target="This" spread="2" unskilledspread="6" setvalue="true" delay="0.01" checkconditionalalways="true" disabledeltatime="true">
+          <Conditional ReloadTimer="0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Contained">
+          <Use />
+        </StatusEffect>
+        <RequiredItems items="smgammo" type="Contained" msg="ItemMsgAmmoRequired" />
+        <StatusEffect type="OnUse" target="This" reload="0.4" setvalue="true" delay="0.15" />
+        <StatusEffect type="OnUse" target="This" reload="0.08" setvalue="true" delay="0.4" />
+        <RequiredSkill identifier="weapons" level="50" />
+      </RangedWeapon>
+      <ItemContainer capacity="1" maxstacksize="1" hideitems="false" containedstateindicatorslot="0" containedstateindicatorstyle="bullet" containedspritedepth="0.56">
+        <Containable items="smgammo" excludeditems="smgmagazinedepletedfuel" hide="false" itempos="-21,0" rotation="-30">
+          <StatusEffect type="OnInserted" target="This" holdpos="28,-22" aimpos="45,3" handle1="-10,-15" handle2="-52,-10" holdangle="54" aimangle="-11" hideitems="true" tags="smallautoweapon,smallitem,weapon,gun,mountableweapon,WF_ceasefire" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnContaining" target="This" interval="1.7" delay="0" offset="-20,-15" checkconditionalalways="true">
+            <ParticleEmitter particle="WF_casingfirearm_smg_magazine" particleamount="1" anglemin="-145" anglemax="-100" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+            <Conditional HasTag="WF_ceasefire" />
+          </StatusEffect>
+          <StatusEffect type="OnInserted" target="This" holdpos="20,-22" aimpos="42,1" handle1="-10,-15" handle2="-60,-40" holdangle="58" aimangle="-20" delay="0.35" condition="75" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="24,-22" aimpos="46,1" handle1="-10,-15" handle2="-50,-25" holdangle="54" aimangle="-15" delay="0.75" condition="100" hideitems="false" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="17,-24" aimpos="42,1" handle1="-10,-15" handle2="22,25" holdangle="33" aimangle="-4" delay="1.15" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="17,-24" aimpos="36,1" handle1="-10,-15" handle2="22,-8" holdangle="39" aimangle="-10" delay="1.4" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="42,-10" aimpos="50,2" handle1="-10,-15" handle2="45,-2" holdangle="-35" aimangle="0" condition="100" maxchargetime="0" delay="1.64" tags="smallautoweapon,smallitem,weapon,gun,mountableweapon" allowaccess="true" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" delay="0.08">
+            <Sound file="%ModDir:3127901589%/Content/Items/Weapons/ANI_smg_reload_3.ogg" range="500" volume="2" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon,WF_reloading" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnRemoved" target="This" holdpos="41,-22" aimpos="56,1" handle1="-10,-15" handle2="-44,-25" holdangle="54" aimangle="-12" condition="100" hideitems="false" delay="0.02" setvalue="true" disabledeltatime="true" checkconditionalalways="true">
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" holdpos="37,-22" aimpos="52,1" handle1="-10,-15" handle2="-54,-40" holdangle="58" aimangle="-17" condition="75" delay="0.2" setvalue="true" disabledeltatime="true" checkconditionalalways="true">
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" holdpos="42,-10" aimpos="50,2" handle1="-10,-15" handle2="45,-2" holdangle="-35" aimangle="0" condition="100" maxchargetime="0" delay="0.6" allowaccess="true" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon" setvalue="true" disabledeltatime="true" checkconditionalalways="true">
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" delay="0.02" checkconditionalalways="true">
+            <Sound file="%ModDir:3127901589%/Content/Items/Weapons/ANI_removemagazine_light_alt.ogg" range="500" />
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnInserted" target="This" delay="0.1" allowaccess="false" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnRemoved" target="This" delay="0.1" allowaccess="false" setvalue="true" disabledeltatime="true" />
+        </Containable>
+        <Containable items="smgmagazinedepletedfuel" hide="false" itempos="-21,0" rotation="-30">
+          <StatusEffect type="OnInserted" target="This" holdpos="28,-22" aimpos="45,3" handle1="-10,-15" handle2="-52,-10" holdangle="54" aimangle="-11" hideitems="true" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon,WF_ceasefire" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnContaining" target="This" interval="1.7" delay="0" offset="-20,-15" checkconditionalalways="true">
+            <ParticleEmitter particle="WF_casingfirearm_smg_magazine_df" particleamount="1" anglemin="-145" anglemax="-100" velocitymin="50" velocitymax="250" CopyEntityAngle="true" />
+            <Conditional HasTag="WF_ceasefire" />
+          </StatusEffect>
+          <StatusEffect type="OnInserted" target="This" holdpos="20,-22" aimpos="42,1" handle1="-10,-15" handle2="-60,-40" holdangle="58" aimangle="-20" delay="0.35" condition="75" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="24,-22" aimpos="46,1" handle1="-10,-15" handle2="-50,-25" holdangle="54" aimangle="-15" delay="0.75" condition="100" hideitems="false" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="17,-24" aimpos="42,1" handle1="-10,-15" handle2="22,25" holdangle="33" aimangle="-4" delay="1.15" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="17,-24" aimpos="36,1" handle1="-10,-15" handle2="22,-8" holdangle="39" aimangle="-10" delay="1.4" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" holdpos="42,-10" aimpos="50,2" handle1="-10,-15" handle2="45,-2" holdangle="-35" aimangle="0" condition="100" maxchargetime="0" delay="1.64" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon" allowaccess="true" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnInserted" target="This" CheckConditionalAlways="true" delay="0.08">
+            <Sound file="%ModDir:3127901589%/Content/Items/Weapons/ANI_smg_reload_3.ogg" range="500" volume="2" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon,WF_reloading" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnRemoved" target="This" holdpos="41,-22" aimpos="56,3" handle1="-10,-15" handle2="-44,-25" holdangle="54" aimangle="-12" condition="100" hideitems="false" delay="0.02" setvalue="true" disabledeltatime="true" checkconditionalalways="true">
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" holdpos="37,-22" aimpos="52,3" handle1="-10,-15" handle2="-54,-40" holdangle="58" aimangle="-17" condition="70" delay="0.2" setvalue="true" disabledeltatime="true" checkconditionalalways="true">
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" holdpos="42,-10" aimpos="50,2" handle1="-10,-15" handle2="45,-2" holdangle="-35" aimangle="0" condition="100" maxchargetime="0" delay="0.6" allowaccess="true" tags="smallautoweapon,smallitem,weapon,gun,gunsmith,mountableweapon" setvalue="true" disabledeltatime="true" checkconditionalalways="true">
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnRemoved" target="This" delay="0.02" checkconditionalalways="true">
+            <Sound file="%ModDir:3127901589%/Content/Items/Weapons/ANI_removemagazine_light_alt.ogg" range="500" />
+            <Conditional HasTag="WF_reloading" />
+          </StatusEffect>
+          <StatusEffect type="OnInserted" target="This" delay="0.1" allowaccess="false" setvalue="true" disabledeltatime="true" />
+          <StatusEffect type="OnRemoved" target="This" delay="0.1" allowaccess="false" setvalue="true" disabledeltatime="true" />
+        </Containable>
+        <SlotIcon slotindex="1" texture="Content/UI/CampaignUIAtlas2.png" sourcerect="896,536,128,64" origin="0.45,0.5" />
+        <SlotIcon slotindex="2" texture="%ModDir:3127901589%/Content/Items/Weapons/Waifu_UI.png" sourcerect="307,0,53,53" origin="0.5,0.5" />
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable items="flashlight" excludeditems="wf_laserpointer" itempos="17,3" setactive="true" />
+          <Containable items="wf_laserpointer" hide="false" itempos="17,3" setactive="true" />
+        </SubContainer>
+        <SubContainer capacity="1" maxstacksize="1">
+          <Containable items="reddot" hide="false" itempos="-5,17" />
+          <Containable items="hybridscope" hide="false" itempos="-5,18">
+            <StatusEffect type="OnContaining" target="This" cameraaimoffset="380" setvalue="true" interval="1" />
+            <StatusEffect type="OnRemoved" target="This" cameraaimoffset="0" setvalue="true" />
+          </Containable>
+        </SubContainer>
+      </ItemContainer>
+      <aitarget sightrange="2000" soundrange="4000" fadeouttime="5" />
+      <Quality>
+        <QualityStat stattype="FirepowerMultiplier" value="0.1" />
+      </Quality>
+      <SkillRequirementHint identifier="weapons" level="50" />
+    </Item>
+
+  </Items>
+</Override>
