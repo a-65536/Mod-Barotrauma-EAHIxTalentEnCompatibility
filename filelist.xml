@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<contentpackage name="[EA-HI] 木卫二萌化计划 x 天赋增强 兼容补丁" corepackage="false" modversion="0.1.0" gameversion="1.13.4.0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="[EA-HI] 木卫二萌化计划 x 天赋增强 兼容补丁" modversion="1.0.1" corepackage="False" steamworkshopid="3826342281" gameversion="1.13.4.0">
   <Item file="%ModDir%/Items/Items.xml" />
 </contentpackage>
